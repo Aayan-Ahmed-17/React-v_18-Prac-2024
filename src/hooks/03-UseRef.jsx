@@ -84,27 +84,29 @@ function FocusInput() {
   );
 }
 //? What gets logged to the console after clicking the Focus button 4 times?
-//* 4 gets logged to the console after clicking the Focus button 4 times
+//* 4 gets logged on to the console after clicking the Focus button 4 times.
 
 //  Example 5: Ref Update in Effect
-// function EffectRef() {
-//   const [trigger, setTrigger] = useState(0);
-//   const valueRef = useRef("initial");
+function EffectRef() {
+  const [trigger, setTrigger] = useState(0);
+  const valueRef = useRef("initial");
   
-//   useEffect(() => {
-//     valueRef.current = "updated";
-//     console.log("Effect ran, ref is:", valueRef.current);
-//   }, [trigger]);
+  useEffect(() => {
+    valueRef.current = "updated";
+    console.log("Effect ran, ref is:", valueRef.current);
+  }, [trigger]);
   
-//   return (
-//     <div>
-//       <button onClick={() => setTrigger(t => t + 1)}>
-//         Trigger Effect
-//       </button>
-//       <p>Ref value: {valueRef.current}</p>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <button onClick={() => setTrigger(t => t + 1)}>
+        Trigger Effect
+      </button>
+      <p>Ref value: {valueRef.current}</p>
+    </div>
+  );
+}
+//? What will be displayed in "Ref value" after clicking the button?
+//* updated will be displayed bcz initially "initial" will show then after clicking on the button it will update tigger value which will run useEffect who is updating the valueRef's
 
 //  Example 6: Multiple Refs Interaction
 // function MultiRef() {
@@ -169,4 +171,4 @@ function FocusInput() {
 //   );
 // }
 
-export {CounterRef , StateMemo, TimerComponent , FocusInput}
+export {CounterRef , StateMemo, TimerComponent , FocusInput, EffectRef}
