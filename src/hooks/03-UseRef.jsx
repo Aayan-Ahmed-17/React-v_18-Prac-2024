@@ -18,32 +18,35 @@ function CounterRef() {
     </div>
   );
 }
+//? what happens to the display when you click the button multiple times?
+//* Nothing will change in the output bcz useRef is used to store the value without causing re-render
+
 
 //  Example 2: Previous State Tracking
-// function StateMemo() {
-//   const [count, setCount] = React.useState(0);
-//   const prevCountRef = useRef();
+function StateMemo() {
+  const [count, setCount] = useState(0);
+  const prevCountRef = useRef();
   
-//   useEffect(() => {
-//     prevCountRef.current = count;
-//   }, [count]);
+  useEffect(() => {
+    prevCountRef.current = count;
+  }, [count]);
   
-//   const handleClick = () => {
-//     setCount(c => c + 1);
-//   };
+  const handleClick = () => {
+    setCount(c => c + 1);
+  };
 
-//   return (
-//     <div>
-//       <button onClick={handleClick}>Update</button>
-//       <p>Previous: {prevCountRef.current}</p>
-//       <p>Current: {count}</p>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <button onClick={handleClick}>Update</button>
+      <p>Previous: {prevCountRef.current}</p>
+      <p>Current: {count}</p>
+    </div>
+  );
+}
 
 //  Example 3: Timer with Cleanup
 // function TimerComponent() {
-//   const [time, setTime] = React.useState(0);
+//   const [time, setTime] = useState(0);
 //   const timerRef = useRef();
   
 //   useEffect(() => {
@@ -78,7 +81,7 @@ function CounterRef() {
 
 //  Example 5: Ref Update in Effect
 // function EffectRef() {
-//   const [trigger, setTrigger] = React.useState(0);
+//   const [trigger, setTrigger] = useState(0);
 //   const valueRef = useRef("initial");
   
 //   useEffect(() => {
@@ -119,7 +122,7 @@ function CounterRef() {
 
 //  Example 7: Conditional Ref Update
 // function ConditionalRef() {
-//   const [count, setCount] = React.useState(0);
+//   const [count, setCount] = useState(0);
 //   const evenCountRef = useRef(0);
   
 //   useEffect(() => {
@@ -140,7 +143,7 @@ function CounterRef() {
 
 //  Example 8: Ref vs State Race
 // function RefVsState() {
-//   const [stateCount, setStateCount] = React.useState(0);
+//   const [stateCount, setStateCount] = useState(0);
 //   const refCount = useRef(0);
   
 //   const handleClick = () => {
