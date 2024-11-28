@@ -109,25 +109,27 @@ function EffectRef() {
 //* updated will be displayed bcz initially "initial" will show then after clicking on the button it will update tigger value which will run useEffect who is updating the valueRef's
 
 //  Example 6: Multiple Refs Interaction
-// function MultiRef() {
-//   const firstRef = useRef(0);
-//   const secondRef = useRef(10);
+function MultiRef() {
+  const firstRef = useRef(0);
+  const secondRef = useRef(10);
   
-//   const handleInteraction = () => {
-//     firstRef.current += secondRef.current;
-//     secondRef.current *= 2;
-//     console.log("First:", firstRef.current);
-//     console.log("Second:", secondRef.current);
-//   };
+  const handleInteraction = () => {
+    firstRef.current += secondRef.current;
+    secondRef.current *= 2;
+    console.log("First:", firstRef.current);
+    console.log("Second:", secondRef.current);
+  };
   
-//   return (
-//     <div>
-//       <button onClick={handleInteraction}>Interact</button>
-//       <p>First: {firstRef.current}</p>
-//       <p>Second: {secondRef.current}</p>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <button onClick={handleInteraction}>Interact</button>
+      <p>First: {firstRef.current}</p>
+      <p>Second: {secondRef.current}</p>
+    </div>
+  );
+}
+//?  After clicking the Interact button twice, what will be the values of First and Second?
+//* 20 & 40 will be the output when we click on to te button twice
 
 //  Example 7: Conditional Ref Update
 // function ConditionalRef() {
