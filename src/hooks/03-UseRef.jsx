@@ -48,20 +48,22 @@ function StateMemo() {
 //* prev == 2 & curr == 3 bcz useEffect is re-rendering our component every time oue count Changes and useRef is storing prev count and showing on to the compo as we specified
 
 //  Example 3: Timer with Cleanup
-// function TimerComponent() {
-//   const [time, setTime] = useState(0);
-//   const timerRef = useRef();
+function TimerComponent() {
+  const [time, setTime] = useState(0);
+  const timerRef = useRef();
   
-//   useEffect(() => {
-//     timerRef.current = setInterval(() => {
-//       setTime(t => t + 1);
-//     }, 1000);
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setTime(t => t + 1);
+    }, 1000);
     
-//     return () => clearInterval(timerRef.current);
-//   }, []);
+    return () => clearInterval(timerRef.current);
+  }, []);
   
-//   return <div>Time: {time}</div>;
-// }
+  return <div>Time: {time}</div>;
+}
+//? What happens to the timer when the component unmounts?
+//* when the compo gets unmount it will stop the the timer bcz the cleanup func will run final time which will stop the timer through the id which is stored in timerRef.current
 
 //  Example 4: Focus Management
 // function FocusInput() {
@@ -165,4 +167,4 @@ function StateMemo() {
 //   );
 // }
 
-export {CounterRef , StateMemo}
+export {CounterRef , StateMemo, TimerComponent}
