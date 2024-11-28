@@ -1,7 +1,7 @@
 //? ============Guess the output of example code given below================ 
 
 // Example 1: Basic Counter with Ref
-import React, { useRef, useEffect } from 'react';
+import React, {useState , useRef, useEffect } from 'react';
 
 function CounterRef() {
   const countRef = useRef(0);
@@ -33,6 +33,7 @@ function StateMemo() {
   
   const handleClick = () => {
     setCount(c => c + 1);
+    console.log(prevCountRef.current)
   };
 
   return (
@@ -43,6 +44,8 @@ function StateMemo() {
     </div>
   );
 }
+//? After clicking the button three times, what will be shown for "Previous" and "Current"?
+//* prev == 2 & curr == 3 bcz useEffect is re-rendering our component every time oue count Changes and useRef is storing prev count and showing on to the compo as we specified
 
 //  Example 3: Timer with Cleanup
 // function TimerComponent() {
@@ -162,4 +165,4 @@ function StateMemo() {
 //   );
 // }
 
-export {CounterRef}
+export {CounterRef , StateMemo}
