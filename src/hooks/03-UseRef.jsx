@@ -129,7 +129,7 @@ function MultiRef() {
   );
 }
 //?  After clicking the Interact button twice, what will be the values of First and Second?
-//* 20 & 40 will be the output when we click on to te button twice
+//* 0 & 10 will be displayed and the actual value will be 30 & 40 (simple cal) it will re-render compo so the val will remain shown 0 & 10
 
 //  Example 7: Conditional Ref Update
 // function ConditionalRef() {
@@ -173,4 +173,4 @@ function MultiRef() {
 //   );
 // }
 
-export {CounterRef , StateMemo, TimerComponent , FocusInput, EffectRef}
+export {CounterRef , StateMemo, TimerComponent , FocusInput, EffectRef , MultiRef}
