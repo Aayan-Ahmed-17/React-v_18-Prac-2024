@@ -178,6 +178,17 @@ function RefVsState() {
   );
 }
 //?  After clicking the button 3 times, what's the difference between what's logged to the console versus what's displayed on screen?
-//* 3,3 in console && 0,3 will display
+/**
+*    ! Let's think through what happens when we click the button 3 times:
+*    !The key differences to understand are:
+
+** Ref updates are immediate and sync
+** State updates are asynchronous
+** Console.log in the click handler shows us values at that exact moment
+** The rendered values show us the final state after React re-renders
+
+** ==> This example really highlights how refs are synchronous while state updates are asynchronous and batched by React's rendering cycle.
+**     Would you like me to explain any part of this behavior in more detail?
+ */
 
 export {CounterRef , StateMemo, TimerComponent , FocusInput, EffectRef , MultiRef , ConditionalRef , RefVsState}
