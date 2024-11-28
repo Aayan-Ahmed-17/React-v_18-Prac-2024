@@ -66,23 +66,25 @@ function TimerComponent() {
 //* when the compo gets unmount it will stop the the timer bcz the cleanup func will run final time which will stop the timer through the id which is stored in timerRef.current
 
 //  Example 4: Focus Management
-// function FocusInput() {
-//   const inputRef = useRef();
-//   const countRef = useRef(0);
+function FocusInput() {
+  const inputRef = useRef();
+  const countRef = useRef(0);
   
-//   const handleFocus = () => {
-//     countRef.current += 1;
-//     inputRef.current.focus();
-//     console.log("Focus count:", countRef.current);
-//   };
+  const handleFocus = () => {
+    countRef.current += 1;
+    inputRef.current.focus();
+    console.log("Focus count:", countRef.current);
+  };
   
-//   return (
-//     <div>
-//       <input ref={inputRef} type="text" />
-//       <button onClick={handleFocus}>Focus Input</button>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <input ref={inputRef} type="text" />
+      <button onClick={handleFocus}>Focus Input</button>
+    </div>
+  );
+}
+//? What gets logged to the console after clicking the Focus button 4 times?
+//* 4 gets logged to the console after clicking the Focus button 4 times
 
 //  Example 5: Ref Update in Effect
 // function EffectRef() {
@@ -167,4 +169,4 @@ function TimerComponent() {
 //   );
 // }
 
-export {CounterRef , StateMemo, TimerComponent}
+export {CounterRef , StateMemo, TimerComponent , FocusInput}
