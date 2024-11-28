@@ -132,25 +132,30 @@ function MultiRef() {
 //* 0 & 10 will be displayed and the actual value will be 30 & 40 (simple cal) it will re-render compo so the val will remain shown 0 & 10
 
 //  Example 7: Conditional Ref Update
-// function ConditionalRef() {
-//   const [count, setCount] = useState(0);
-//   const evenCountRef = useRef(0);
+function ConditionalRef() {
+  const [count, setCount] = useState(0);
+  const evenCountRef = useRef(0);
   
-//   useEffect(() => {
-//     if (count % 2 === 0) {
-//       evenCountRef.current = count;
-//     }
-//   }, [count]);
+  useEffect(() => {
+    console.log("start")
+    if (count % 2 === 0) {
+        evenCountRef.current = count;
+        console.log("between")
+    }
+    console.log("end")
+  }, [count]);
   
-//   return (
-//     <div>
-//       <button onClick={() => setCount(c => c + 1)}>
-//         Increment ({count})
-//       </button>
-//       <p>Last even: {evenCountRef.current}</p>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <button onClick={() => setCount(c => c + 1)}>
+        Increment ({count})
+      </button>
+      <p>Last even: {evenCountRef.current}</p>
+    </div>
+  );
+}
+//? After incrementing the count to 5, what will be shown as the "Last even" value?
+//* 4 will be shown as the Last even value bcz every time the count change the useEffect will run it check is the count val ? even : not if it is then put the count val in the evenCountRef else not so 5 is not the even num so the last evenRef will become 4
 
 //  Example 8: Ref vs State Race
 // function RefVsState() {
@@ -173,4 +178,4 @@ function MultiRef() {
 //   );
 // }
 
-export {CounterRef , StateMemo, TimerComponent , FocusInput, EffectRef , MultiRef}
+export {CounterRef , StateMemo, TimerComponent , FocusInput, EffectRef , MultiRef , ConditionalRef}
