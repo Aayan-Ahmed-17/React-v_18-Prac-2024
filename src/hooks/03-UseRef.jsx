@@ -158,24 +158,26 @@ function ConditionalRef() {
 //* 4 will be shown as the Last even value bcz every time the count change the useEffect will run it check is the count val ? even : not if it is then put the count val in the evenCountRef else not so 5 is not the even num so the last evenRef will become 4
 
 //  Example 8: Ref vs State Race
-// function RefVsState() {
-//   const [stateCount, setStateCount] = useState(0);
-//   const refCount = useRef(0);
+function RefVsState() {
+  const [stateCount, setStateCount] = useState(0);
+  const refCount = useRef(0);
   
-//   const handleClick = () => {
-//     refCount.current += 1;
-//     setStateCount(stateCount + 1);
-//     console.log("Ref:", refCount.current);
-//     console.log("State:", stateCount);
-//   };
+  const handleClick = () => {
+    refCount.current += 1;
+    setStateCount(c => c + 1);
+    console.log("Ref:", refCount.current);
+    console.log("State:", stateCount);
+  };
   
-//   return (
-//     <div>
-//       <button onClick={handleClick}>Update Both</button>
-//       <p>Ref count: {refCount.current}</p>
-//       <p>State count: {stateCount}</p>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <button onClick={handleClick}>Update Both</button>
+      <p>Ref count: {refCount.current}</p>
+      <p>State count: {stateCount}</p>
+    </div>
+  );
+}
+//?  After clicking the button 3 times, what's the difference between what's logged to the console versus what's displayed on screen?
+//* 3,3 in console && 0,3 will display
 
-export {CounterRef , StateMemo, TimerComponent , FocusInput, EffectRef , MultiRef , ConditionalRef}
+export {CounterRef , StateMemo, TimerComponent , FocusInput, EffectRef , MultiRef , ConditionalRef , RefVsState}
