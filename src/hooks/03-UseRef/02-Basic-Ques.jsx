@@ -22,7 +22,7 @@ const FocusInput = () => {
   )
 }
 
-//*2 
+//*3 
 const CountRender = () => {
   const renderCount = useRef(0);
   
@@ -34,4 +34,32 @@ const CountRender = () => {
   return <div>Check console for render count</div>;
 }
 
-export {FocusInput , CountRender}
+//*5
+const MoveOnTop = () => {
+  const buttonRef = useRef(null);
+  
+  useEffect(() => {
+    window.onscroll = () => {
+      if (window.pageYOffset > 300) {
+        buttonRef.current.style.display = 'block';
+      } else {
+        buttonRef.current.style.display = 'none';
+      }
+    };
+  }, []);
+
+  return (
+    <>
+    <div className='bg-red-300 h-[70rem]'></div>
+    <button 
+      ref={buttonRef} 
+      onClick={() => window.scrollTo(0, 0)}
+      style={{ display: 'none' }}
+      >
+      Scroll to Top
+    </button>
+      </>
+  );
+};
+
+export {FocusInput , CountRender , MoveOnTop}
