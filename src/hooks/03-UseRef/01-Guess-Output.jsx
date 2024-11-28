@@ -162,8 +162,6 @@ function RefVsState() {
   const [stateCount, setStateCount] = useState(0);
   const refCount = useRef(0);
   
-  console.log(<ConditionalRef />)
-  
   const handleClick = () => {
     refCount.current += 1;
     setStateCount(c => c + 1);
