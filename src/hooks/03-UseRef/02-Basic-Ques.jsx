@@ -5,13 +5,13 @@
 //?5 Create a scroll-to-top button that appears after scrolling down:
 
 //*1
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const FocusInput = () => {
   const inputRef = useRef(null)
 
   function handleFocus (){
-    input.current.focus()
+    inputRef.current.focus()
   }
 
   return (
@@ -22,4 +22,16 @@ const FocusInput = () => {
   )
 }
 
-export {FocusInput}
+//*2 
+const CountRender = () => {
+  const renderCount = useRef(0);
+  
+  useEffect(() => {
+    renderCount.current += 1;
+    console.log('Component has rendered:', renderCount.current, 'times');
+  });
+
+  return <div>Check console for render count</div>;
+}
+
+export {FocusInput , CountRender}
